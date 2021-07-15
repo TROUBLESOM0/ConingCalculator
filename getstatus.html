@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calculating...</title>
+	<style>
+div {
+	text-align: center;
+	padding: 100px;
+	font-size: 150%;	
+	</style>
+</head>
+<body>
+
+<div class="progbar";>
+	Status: 
+<progress id="progBar" min="0" max="100" value="20">  
+</progress>
+<p id="reader"></p>
+</div>
+
+<script>
+var b = document.getElementById("progBar");
+var r = document.getElementById("reader");
+//setInterval speed in milliseconds
+var id = setInterval(add, 15);
+
+function add(){
+  if(b.value >= 100){
+//clear interval when value reach 100
+	r.innerHTML = "Done";
+	clearInterval(id);
+//page to pull after done
+	window.location.replace("coner.html");
+  }else{
+//add value every setInterval()
+	b.value++; // The progress bars value is increased by 1 each time function 'add' is called (every 'x' milliseconds by setInterval)
+	r.innerHTML = "working"; // Element with id of "reader" displays value of the bar))
+  }
+}
+</script>
+
+</body>
+
+</html>
